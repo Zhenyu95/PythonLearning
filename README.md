@@ -1,7 +1,7 @@
 # pythonLearning
-how to use __new__
-when need to change the input at the very beginning
-Example:
+How to use __new__:  
+	when need to change the input at the very beginning  
+Example:  
 
 ```python
 class CapStr(str):
