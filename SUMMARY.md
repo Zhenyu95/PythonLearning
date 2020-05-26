@@ -2,4 +2,5 @@
 
 * [Intro](README.md)
 * [Scrapy](scrapy.md)
+* [CrawlSpider](crawlspider.md)
 
