@@ -6,6 +6,8 @@ description: Scrapy learning notes
 
 ## Basics:
 
+![](../../../.gitbook/assets/scrapy_architecture.png)
+
 ### Create New Project
 
 #### Create project:  
