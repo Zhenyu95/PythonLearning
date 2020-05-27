@@ -21,7 +21,7 @@ scrapy startproject project_name
 Run following code in the cmd/Terminal
 
 ```python
-scrapy genspider spider_name
+scrapy genspider spider_name url
 ```
 
 #### Settings change in settings.py
