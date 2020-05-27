@@ -11,7 +11,7 @@ scrapy startproject project_name
 To create CrawlSpider: 
 
 ```text
-scrapy genspider -t crawl spider_name
+scrapy genspider -t crawl spider_name url
 ```
 
 
