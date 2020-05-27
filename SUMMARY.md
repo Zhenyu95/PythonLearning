@@ -7,4 +7,5 @@
 * [SpiderPython](scrapy-1/spiderpython/README.md)
   * [Scrapy](scrapy-1/spiderpython/scrapy/README.md)
     * [CrawlSpider](scrapy-1/spiderpython/scrapy/crawlspider.md)
+    * [Scrapy hell](scrapy-1/spiderpython/scrapy/scrapy-hell.md)
 
