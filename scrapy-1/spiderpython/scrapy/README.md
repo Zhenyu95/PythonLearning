@@ -1,10 +1,8 @@
----
-description: Scrapy learning notes
----
-
 # Scrapy
 
 ## Basics:
+
+Office doc: [https://docs.scrapy.org/en/latest/index.html](https://docs.scrapy.org/en/latest/index.html)
 
 ![](../../../.gitbook/assets/scrapy_architecture.png)
 
