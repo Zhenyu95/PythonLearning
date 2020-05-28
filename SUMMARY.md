@@ -2,6 +2,7 @@
 
 * [Intro](README.md)
 * [Python Basics](python-basics.md)
+* [OS](os.md)
 
 ## Scrapy <a id="scrapy-1"></a>
 
