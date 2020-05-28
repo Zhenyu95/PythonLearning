@@ -1,6 +1,6 @@
 # Python Basics
 
-## lamda
+## `lamda`
 
 ```python
 lamda argument_list : expression
@@ -18,6 +18,14 @@ lambda:None
 #inputs are *args and output is the sum of inputs
 lambda *args: sum(args)
 ```
+
+## `map`
+
+```python
+map(function, iterable)
+```
+
+**`map()`**function returns a **map object**\(which is an iterator\) of the results after applying the given function to each item of a given iterable \(list, tuple etc.\)
 
 ## `*args` & `*kwargs`
 
@@ -48,4 +56,6 @@ myFun(first ='Geeks', mid ='for', last='Geeks')
 #mid == for
 #first == Geeks
 ```
+
+
 
