@@ -2,7 +2,7 @@
 
 ## Basics:
 
-Office doc: [https://docs.scrapy.org/en/latest/index.html](https://docs.scrapy.org/en/latest/index.html)
+Offical doc: [https://docs.scrapy.org/en/latest/index.html](https://docs.scrapy.org/en/latest/index.html)
 
 ![](../../../.gitbook/assets/scrapy_architecture.png)
 
@@ -125,7 +125,7 @@ def parse(self, response):
     ......
     yield scrapy.Request(url, 
         callback=self.parse_tocall, 
-        meta={'name':value)
+        meta={'name':value})
         
 def parse_tocall(self, response):
     ......
