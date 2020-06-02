@@ -42,7 +42,7 @@ class ImageItem(scrapy.Item):
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy.pipelines.images.ImagesPipeline' : 10
+   'project_name.pipelines.Name_ImagesPipeline' : 10
 }
 ```
 
