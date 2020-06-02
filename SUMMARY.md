@@ -12,7 +12,8 @@
   * [Scrapy](scrapy-1/spiderpython/scrapy/README.md)
     * [CrawlSpider](scrapy-1/spiderpython/scrapy/crawlspider.md)
     * [Scrapy hell](scrapy-1/spiderpython/scrapy/scrapy-hell.md)
-    * [Pipeline](scrapy-1/spiderpython/scrapy/downloader.md)
+    * [Pipeline](scrapy-1/spiderpython/scrapy/pipeline.md)
     * [Change image name](scrapy-1/spiderpython/scrapy/change-image-name.md)
+    * [Downloader Middleware](scrapy-1/spiderpython/scrapy/downloader-middleware.md)
 * [XPATH](xpath.md)
 
