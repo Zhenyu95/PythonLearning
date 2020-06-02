@@ -52,3 +52,27 @@ DOWNLOADER_MIDDLEWARES = {
 }
 ```
 
+## IP Proxy
+
+### 1. In `middlewares.py` define a new class
+
+```python
+class IPProxyDownloaderMiddleware(object):
+    PROXIES = ['192.168.0.1','ips']
+    def process_request(self,request,spider):
+        proxy = random.choice(self.PROXIES)
+        request.meta['proxy'] = proxy
+```
+
+### 2. In settings.py change downloader middleware settings
+
+
+
+```python
+# Enable or disable downloader middlewares
+# See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
+DOWNLOADER_MIDDLEWARES = {
+   'project_name.middlewares.IPProxyDownloaderMiddleware': 543,
+}
+```
+
