@@ -1,4 +1,4 @@
-# Scrapy hell
+# Scrapy shell
 
 ## Initialise Scrapy Shell
 
