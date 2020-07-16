@@ -1,6 +1,0 @@
-# OS
-
-| Function | Explain |
-| :--- | :--- |
-|  |  |
-

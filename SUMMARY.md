@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Intro](README.md)
-* [Python Basics](python-basics.md)
-* [OS](os.md)
+* [Python Basics](python-basics/README.md)
+  * [Numpy](python-basics/numpy.md)
 * [OS](os-1.md)
 
 ## Scrapy <a id="scrapy-1"></a>
@@ -15,5 +15,8 @@
     * [Pipeline](scrapy-1/spiderpython/scrapy/pipeline.md)
     * [Change image name](scrapy-1/spiderpython/scrapy/change-image-name.md)
     * [Downloader Middleware](scrapy-1/spiderpython/scrapy/downloader-middleware.md)
+
+---
+
 * [XPATH](xpath.md)
 
