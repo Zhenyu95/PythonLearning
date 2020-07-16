@@ -2,6 +2,7 @@
 
 * [Intro](README.md)
 * [Python Basics](python-basics/README.md)
+  * [Time](python-basics/time.md)
   * [Dict](python-basics/dict.md)
   * [Numpy](python-basics/numpy.md)
 * [OS](os-1.md)
