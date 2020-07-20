@@ -4,8 +4,8 @@
 * [Python Basics](python-basics/README.md)
   * [Time](python-basics/time.md)
   * [Dict](python-basics/dict.md)
-  * [Numpy](python-basics/numpy.md)
 * [OS](os-1.md)
+* [Numpy](numpy.md)
 
 ## Scrapy <a id="scrapy-1"></a>
 
