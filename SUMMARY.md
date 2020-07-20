@@ -6,6 +6,7 @@
   * [Dict](python-basics/dict.md)
 * [OS](os-1.md)
 * [Numpy](numpy.md)
+* [OpenCV](opencv.md)
 
 ## Scrapy <a id="scrapy-1"></a>
 
