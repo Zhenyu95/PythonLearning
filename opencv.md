@@ -109,6 +109,17 @@ def floodfill(img):
     cv.imshow('floodfill',img)
 ```
 
+### Blur
+
+#### Mean filter blur
+
+```python
+def img_blur(img):
+    # cv.blur(	src, ksize[, dst[, anchor[, borderType]]]	)
+    dst = cv.blur(img,(3,3))
+    cv.imshow('blurred',dst)
+```
+
 ## APIs
 
 ### RGB 2 Gray/HSV/YUV...
