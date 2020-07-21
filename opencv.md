@@ -35,8 +35,9 @@ def extract_color_green():
         lower_hsv = np.array([37,43,46])
         upper_hsv = np.array([77,255,255])
         mask = cv.inRange(hsv,lowerb=lower_hsv,upperb=upper_hsv)
+        dst = cv.bitwise_and(frame,frame,mask=mask)
         cv.imshow('video',frame)
-        cv.imshow('mask',mask)
+        cv.imshow('result',dst)
         c = cv.waitkey(40)
         if c ==27:
             break
@@ -54,13 +55,49 @@ img[:,:, 2] = 0
 cv.merge(b, g, r)
 ```
 
-## APIs
+### Basic Operations
 
-#### Inverse color
+```text
+#add
+cv.add(img1,img2)
+
+#subtract
+cv.subtract(img1,img2)
+
+#divide
+cv.divide(img1,img2)
+
+#multiply
+cv.multiply(img1,img2)
+
+#mean
+cv.mean(img1)
+
+#standard deviation
+mean, dev = cv.meanStdDev(img)
+
+#and
+cv.bitwise_and(img1,img2)
+
+#or
+cv.bitwise_or(img1,img2)
+
+#not
+cv.bitwise_not(img)
+```
+
+### Adjust contrast and brightness
 
 ```python
-img = cv.bitwise_not(img)
+def contrast_brightness(img,contrast,brightness):
+    #create a blank white image to help adjust contrast and bright ness
+    blank = np.zeros(img.shape,img.dtype)
+    #adjusted image is the operation result of (weight of img + weight of blank)*brightness
+    dst = cv.addWeighted(img, contrast, blank, 1-contrast, brightness)
+    cv.imshow('contrast_brightness',dst)
 ```
+
+## APIs
 
 #### RGB 2 Gray/HSV/YUV...
 
