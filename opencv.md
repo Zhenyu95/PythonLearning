@@ -139,6 +139,13 @@ def customized_kernel(img):
     cv.imshow('sharped',dst)
 ```
 
+#### Gaussian blur
+
+```python
+#cv2.GaussianBlur(src, ksize, sigmaX[, dst[, sigmaY[, borderType]]]) 
+cv.GaussianBlur(img,(5,5),0)
+```
+
 ## APIs
 
 ### RGB 2 Gray/HSV/YUV...
