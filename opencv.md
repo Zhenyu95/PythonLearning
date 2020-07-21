@@ -92,14 +92,26 @@ cv.bitwise_not(img)
 def contrast_brightness(img,contrast,brightness):
     #create a blank white image to help adjust contrast and bright ness
     blank = np.zeros(img.shape,img.dtype)
-    #adjusted image is the operation result of (weight of img + weight of blank)*brightness
+    #adjusted image is the operation result of 
+    #(weight of img + weight of blank)*brightness
     dst = cv.addWeighted(img, contrast, blank, 1-contrast, brightness)
     cv.imshow('contrast_brightness',dst)
 ```
 
+### floodfill
+
+```python
+def floodfill(img):
+    h, w = img.shape[:2]
+    mask = np.zeros([h+2,w+2],np.uint8)
+    #cv2.floodFill(image, mask, seedPoint, newVal[, loDiff[, upDiff[, flags]]])
+    cv.floodFill(img,mask,(1,1),(255,0,0),(100,100,100),(50,50,50),cv.FLOODFILL_FIXED_RANGE)
+    cv.imshow('floodfill',img)
+```
+
 ## APIs
 
-#### RGB 2 Gray/HSV/YUV...
+### RGB 2 Gray/HSV/YUV...
 
 ```python
 gray = cv.cvtcolor(img,cv.COLOR_BGR2GRAY)
