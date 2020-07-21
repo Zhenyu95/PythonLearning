@@ -120,6 +120,25 @@ def img_blur(img):
     cv.imshow('blurred',dst)
 ```
 
+#### Median filter blur
+
+```python
+def img_blur(img):
+    #  cv2.medianBlur(src, ksize[, dst])
+    dst = cv.medianBlur(img,5)
+    cv.imshow('blurred',dst)
+```
+
+#### Customize Kernel
+
+```python
+def customized_kernel(img):
+    kernel = np.ones([3,3],np.float32)*(-1)
+    kernel[1,1] = 9
+    dst = cv.filter2D(img,-1,kernel)
+    cv.imshow('sharped',dst)
+```
+
 ## APIs
 
 ### RGB 2 Gray/HSV/YUV...
