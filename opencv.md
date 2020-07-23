@@ -146,6 +146,41 @@ def customized_kernel(img):
 cv.GaussianBlur(img,(5,5),0)
 ```
 
+### Edge Preserving Filter \(EPF\)
+
+#### BiLaterial Filter
+
+```python
+def biLateralEPF(img):
+    #cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace[, dst[, borderType]])
+    dst = cv.bilateralFilter(img,0,100,15)
+    cv.imshow('biEPF',dst)
+```
+
+#### Meanshift Filter
+
+```python
+def meanShiftEPF(img):
+    #cv2.pyrMeanShiftFiltering(src, sp, sr[, dst[, maxLevel[, termcrit]]])
+    dst = cv.pyrMeanShiftFiltering(img,10,50)
+    cv.imshow('meanEPF',dst)
+```
+
+### Histogram
+
+```python
+from matplotlib import pyplot
+
+def img_hist(img):
+    color = ('blue','green','red')
+    for i, color in enumerate(color):
+        #Calculates a histogram of a set of arrays
+        hist = cv.calcHist([img],[i],None,[256],[0,256])
+        pyplot.plot(hist,color=color)
+        pyplot.xlim([0,256])
+    pyplot.show()
+```
+
 ## APIs
 
 ### RGB 2 Gray/HSV/YUV...
