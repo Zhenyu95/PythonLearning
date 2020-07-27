@@ -205,6 +205,18 @@ def clache(img):
     cv.imshow('Clache',dst)
 ```
 
+### Use histogram to compare images
+
+```python
+def histCompare(img1,img2):
+    hist1 = cv.calcHist([img1],[0,1,2],None,[16,16,16],[0,256, 0,256, 0,256])
+    hist2 = cv.calcHist([img2],[0,1,2],None,[16,16,16],[0,256, 0,256, 0,256])
+    match1 = cv.compareHist(hist1, hist2, cv.HISTCMP_BHATTACHARYYA)
+    match2 = cv.compareHist(hist1, hist2, cv.HISTCMP_CORREL)
+    match3 = cv.compareHist(hist1, hist2, cv.HISTCMP_CHISQR)
+    print("Bhatta:%s, Correlation:%s, ChiSQR:%s" %(match1, match2, match3))
+```
+
 ### RGB 2 Gray/HSV/YUV...
 
 ```python
