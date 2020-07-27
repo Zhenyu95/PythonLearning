@@ -181,7 +181,11 @@ def img_hist(img):
     pyplot.show()
 ```
 
-## APIs
+### Use Histogram to adjust contrast
+
+```python
+
+```
 
 ### RGB 2 Gray/HSV/YUV...
 
