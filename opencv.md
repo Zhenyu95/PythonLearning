@@ -184,7 +184,25 @@ def img_hist(img):
 ### Use Histogram to adjust contrast
 
 ```python
+#Equalizes the histogram of a grayscale image. (easy but may lead to unsatisfactory result)
+def equalHist(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    cv.imshow('Gray',gray)
+    dst = cv.equalizeHist(gray)
+    cv.imshow('equalHist',dst)
+```
 
+```python
+#Equalizes the histogram of a grayscale image. (customized)
+def clache(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    #clipLimit: Threshold for contrast limiting.
+    #tileGridSize:Size of grid for histogram equalization. 
+        #Input image will be divided into equally sized rectangular tiles. 
+        #tileGridSize defines the number of tiles in row and column.
+    clache = cv.createCLAHE(clipLimit=2, tileGridSize=(8,8))
+    dst = clache.apply(gray)
+    cv.imshow('Clache',dst)
 ```
 
 ### RGB 2 Gray/HSV/YUV...
