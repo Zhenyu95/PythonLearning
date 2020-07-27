@@ -253,5 +253,32 @@ hsv= cv.cvtcolor(img,cv.COLOR_BGR2HSV)
 yuv = cv.cvtcolor(img,cv.COLOR_BGR2YUV)
 ```
 
+### show 2D histogram \(hsv\)
 
+```python
+hist = cv.calcHist([hsv_img],[0,1],None,[180,256],[0,180,0,256])
+plt.imshow(hist,interpolation="nearest")
+plt.show()
+```
+
+### Back Project
+
+```python
+def backProjct(target,sample):
+    roi_hsv = cv.cvtColor(sample,cv.COLOR_BGR2HSV)
+    target_hsv = cv.cvtColor(target,cv.COLOR_BGR2HSV)
+
+    roiHist = cv.calcHist([roi_hsv],[0,1],None,[36,48],[0,180,0,256])
+    cv.normalize(roiHist,roiHist,0,255,cv.NORM_MINMAX)
+    dst = cv.calcBackProject([target_hsv],[0,1],roiHist,[0,180,0,256],1)
+    cv.imshow('backProject',dst)
+```
+
+### cv.normalize\(\)
+
+```python
+cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]])
+```
+
+When `normType=NORM_MINMAX`, `alpha` is the Min and `beta` is the Max
 
