@@ -476,3 +476,10 @@ def laplacian(img):
     plt.show()
 ```
 
+#### To show the image after Sobel/Scharr/Laplacian:
+
+```python
+imgToShow = cv.convertScaleAbs(img)
+cv.imshow('show',imgToShow)
+```
+
