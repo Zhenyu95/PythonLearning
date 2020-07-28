@@ -372,7 +372,7 @@ def triangleThresh(img):
     plt.show()
 ```
 
-#### Adptive thresholding
+#### Adaptive thresholding
 
 ```python
 def adptiveThres(img):
