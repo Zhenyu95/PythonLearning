@@ -483,3 +483,23 @@ imgToShow = cv.convertScaleAbs(img)
 cv.imshow('show',imgToShow)
 ```
 
+### Canny Edge Detection
+
+```python
+def canny(img):
+#cv2.Canny(image, threshold1, threshold2[, edges
+#[, apertureSize[, L2gradient]]]) → edges
+#img should be gray
+#threshold2 should be 2 or 3*threshold1
+    edges = cv.Canny(img,50,150)
+
+    plt.subplot(121),plt.imshow(cv.cvtColor(img,cv.COLOR_BGR2RGB))
+    plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+    plt.subplot(122),plt.imshow(edges,cmap = 'gray')
+    plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+
+    plt.show()
+```
+
+
+
