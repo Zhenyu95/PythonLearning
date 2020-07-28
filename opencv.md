@@ -467,7 +467,7 @@ def scharr(img):
 
 ```python
 def laplacian(img):
-    lapImg = cv.Laplacian(img,cv.CV_64F)
+    lapImg = cv.Laplacian(img,cv.CV_64F,ksize=1)
     plt.subplot(1, 2, 1), plt.imshow(cv.cvtColor(img, cv.COLOR_BGR2RGB))
     plt.title('Original'), plt.xticks([]), plt.yticks([])
     plt.subplot(1, 2, 2), plt.imshow(lapImg)
