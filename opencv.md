@@ -109,9 +109,17 @@ def floodfill(img):
     cv.imshow('floodfill',img)
 ```
 
-### Blur
+### RGB 2 Gray/HSV/YUV...
 
-#### Mean filter blur
+```python
+gray = cv.cvtcolor(img,cv.COLOR_BGR2GRAY)
+hsv= cv.cvtcolor(img,cv.COLOR_BGR2HSV)
+yuv = cv.cvtcolor(img,cv.COLOR_BGR2YUV)
+```
+
+## Blur
+
+### Mean filter blur
 
 ```python
 def img_blur(img):
@@ -120,7 +128,7 @@ def img_blur(img):
     cv.imshow('blurred',dst)
 ```
 
-#### Median filter blur
+### Median filter blur
 
 ```python
 def img_blur(img):
@@ -129,7 +137,7 @@ def img_blur(img):
     cv.imshow('blurred',dst)
 ```
 
-#### Customize Kernel
+### Customize Kernel
 
 ```python
 def customized_kernel(img):
@@ -139,16 +147,16 @@ def customized_kernel(img):
     cv.imshow('sharped',dst)
 ```
 
-#### Gaussian blur
+### Gaussian blur
 
 ```python
 #cv2.GaussianBlur(src, ksize, sigmaX[, dst[, sigmaY[, borderType]]]) 
 cv.GaussianBlur(img,(5,5),0)
 ```
 
-### Edge Preserving Filter \(EPF\)
+## Edge Preserving Filter \(EPF\)
 
-#### BiLaterial Filter
+### BiLaterial Filter
 
 ```python
 def biLateralEPF(img):
@@ -157,7 +165,7 @@ def biLateralEPF(img):
     cv.imshow('biEPF',dst)
 ```
 
-#### Meanshift Filter
+### Meanshift Filter
 
 ```python
 def meanShiftEPF(img):
@@ -166,7 +174,7 @@ def meanShiftEPF(img):
     cv.imshow('meanEPF',dst)
 ```
 
-### Histogram
+## Histogram
 
 ```python
 from matplotlib import pyplot
@@ -245,14 +253,6 @@ def hsv_compare(img1,img2):
     print("Bhatta:%s, Correlation:%s, ChiSQR:%s" %(match1, match2, match3))
 ```
 
-### RGB 2 Gray/HSV/YUV...
-
-```python
-gray = cv.cvtcolor(img,cv.COLOR_BGR2GRAY)
-hsv= cv.cvtcolor(img,cv.COLOR_BGR2HSV)
-yuv = cv.cvtcolor(img,cv.COLOR_BGR2YUV)
-```
-
 ### show 2D histogram \(hsv\)
 
 ```python
@@ -261,7 +261,7 @@ plt.imshow(hist,interpolation="nearest")
 plt.show()
 ```
 
-### Back Project
+## Back Project
 
 ```python
 def backProjct(target,sample):
@@ -282,7 +282,7 @@ cv2.normalize(src[, dst[, alpha[, beta[, norm_type[, dtype[, mask]]]]]])
 
 When `normType=NORM_MINMAX`, `alpha` is the Min and `beta` is the Max
 
-### Template matching
+## Template matching
 
 ```python
 def tempMatch(src,temp):
@@ -311,9 +311,9 @@ def tempMatch(src,temp):
         cv.imshow('method'+str(method),src)
 ```
 
-### Image Thresholding
+## Image Thresholding \(Binary\)
 
-#### Simple thresholding: threshold set by user
+### Simple thresholding: threshold set by user
 
 ```python
 def simThresh(img):
@@ -338,7 +338,7 @@ def simThresh(img):
     plt.show()
 ```
 
-#### Otsu thresholding: threshold calculated on Otsu's binarization
+### Otsu thresholding: threshold calculated on Otsu's binarization
 
 ```python
 def otsuThresh(img):
@@ -355,7 +355,7 @@ def otsuThresh(img):
     plt.show()
 ```
 
-#### Triangle thresholding: threshold calculated based on Triangle binarization
+### Triangle thresholding: threshold calculated based on Triangle binarization
 
 ```python
 def triangleThresh(img):
@@ -372,7 +372,7 @@ def triangleThresh(img):
     plt.show()
 ```
 
-#### Adaptive thresholding
+### Adaptive thresholding
 
 ```python
 def adptiveThres(img):
@@ -392,7 +392,7 @@ def adptiveThres(img):
     plt.show()
 ```
 
-### Gaussian Pyramid
+## Gaussian Pyramid
 
 ```python
 def gaussainPyramid(img):
@@ -419,9 +419,9 @@ def laplacianPyramid(img):
     return laplacianPyrImg
 ```
 
-### Image gradient
+## Image gradient
 
-#### Sobel
+### Sobel
 
 ```python
 def sobel(img):
@@ -441,7 +441,7 @@ def sobel(img):
     plt.show()
 ```
 
-#### Scharr
+### Scharr
 
 more sensitive than Sobel
 
@@ -463,7 +463,7 @@ def scharr(img):
     plt.show()
 ```
 
-#### Laplacian
+### Laplacian
 
 ```python
 def laplacian(img):
@@ -476,14 +476,14 @@ def laplacian(img):
     plt.show()
 ```
 
-#### To show the image after Sobel/Scharr/Laplacian:
+### To show the image after Sobel/Scharr/Laplacian:
 
 ```python
 imgToShow = cv.convertScaleAbs(img)
 cv.imshow('show',imgToShow)
 ```
 
-### Canny Edge Detection
+## Canny Edge Detection
 
 ```python
 def canny(img):
@@ -501,7 +501,7 @@ def canny(img):
     plt.show()
 ```
 
-### Hough Line detection
+## Hough Line detection
 
 ```python
 def hough(img):
@@ -527,7 +527,7 @@ def hough(img):
     cv.imwrite('result.jpg', img)
 ```
 
-### Hough Circle detection
+## Hough Circle detection
 
 ```python
 def houghCircle(img):
@@ -573,6 +573,129 @@ def houghCircle(img):
     plt.title('Gaussian'), plt.xticks([]), plt.yticks([])
     plt.show()
 ```
+
+## Contours
+
+### findContours\(\) & drawContours\(\)
+
+```python
+def contours(img):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    ret1, thresh1 = cv.threshold(gray, 127, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+    ret2, thresh2 = cv.threshold(gray, 127, 255, 0)
+    thresh3 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)
+    thresh4 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
+
+    contours1, hierarchy1 = cv.findContours(thresh1, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours2, hierarchy2 = cv.findContours(thresh2, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours3, hierarchy3 = cv.findContours(thresh3, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours4, hierarchy4 = cv.findContours(thresh4, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours5, hierarchy5 = cv.findContours(thresh4, cv.RETR_TREE, cv.CHAIN_APPROX_NONE)
+    
+    img = np.zeros(img.shape,dtype=np.uint8)
+    
+    img1 = cv.drawContours(img, contours1, -1, (0, 255, 0), 3)
+    img2 = cv.drawContours(img, contours2, -1, (0, 255, 0), 3)
+    img3 = cv.drawContours(img, contours3, -1, (0, 255, 0), 3)
+    img4 = cv.drawContours(img, contours4, -1, (0, 255, 0), 3)
+    img5 = cv.drawContours(img, contours5, -1, (0, 255, 0), 3)
+
+    titles = ['Original', 'Ostu+Simple', 'Simple+Simple', 'AdaptiveMean+Simple', 'AdaptiveGaussian+Simple',
+              'AdaptiveGaussian+None']
+    imgs = [img,img1,img2,img3,img4,img5]
+
+    for i in range(6):
+        plt.subplot(2,3,i+1)
+        plt.imshow(imgs[i])
+        plt.title(titles[i])
+        plt.xticks([]), plt.yticks([])
+    plt.show()
+```
+
+### Get Image Moments
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+M = cv.moments(cnt)
+```
+
+### Get Contour Area
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+area = cv.contourArea(cnt)
+```
+
+### Get Contour Perimeter
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+# pass True if the contours is closed.
+perimeter = cv.arcLength(cnt,True)
+```
+
+### Contour Approximation
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+epsilon = 0.01*cv.arcLength(cnt,True)
+# epsilon is the maximum distance from contour to approximated contour
+approx = cv.approxPolyDP(cnt,epsilon,True)
+```
+
+### Bounding rectangle
+
+#### Straight rectangle
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+
+x,y,w,h = cv2.boundingRect(cnt)
+img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+```
+
+#### Rotated rectangle
+
+```python
+img = cv.imread('image.jpg',0)
+ret,thresh = cv.threshold(img,127,255,0)
+contours,hierarchy = cv.findContours(thresh, 1, 2)
+
+cnt = contours[0]
+
+rect = cv2.minAreaRect(cnt)
+box = cv2.boxPoints(rect)
+box = np.int0(box)
+im = cv2.drawContours(im,[box],0,(0,0,255),2)
+```
+
+
+
+
+
+
+
+
 
 
 
