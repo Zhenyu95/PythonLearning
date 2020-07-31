@@ -689,7 +689,79 @@ box = np.int0(box)
 im = cv2.drawContours(im,[box],0,(0,0,255),2)
 ```
 
+## Morphological Transformations \(形态学\)
 
+### Erode
+
+```python
+def erosion(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(gray,127,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    
+    kernel = np.ones((3, 3),np.uint8)
+    erosion = cv.erode(thresh, kernel)
+```
+
+### Dilation
+
+```python
+def dilation(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(gray,127,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    
+    kernel = np.ones((3, 3),np.uint8)
+    dilation= cv.dilate(thresh, kernel)
+```
+
+### Opening
+
+Opening \(`cv.morphologyEX(img,cv.MORPG_OPEN,kernel)`\) is erosion followed by dilation. It is useful in removing noise
+
+```text
+def opening(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(gray,127,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    
+    kernel = np.ones((3, 3), np.uint8)
+    opening = cv.morphologyEx(thresh, cv.MORPH_OPEN, kernel)
+```
+
+### Closing
+
+Closing \(`cv.morphologyEX(img,cv.MORPG_CLOSE,kernel)`\) is dilation followed by erosion. It is useful in closing small holes inside the foreground objects, or small black points on the object.
+
+```python
+def closing(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(gray,127,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    
+    kernel = np.ones((3, 3), np.uint8)
+    closing= cv.morphologyEx(thresh, cv.MORPH_CLOSE, kernel)
+```
+
+### Morphological gradient
+
+`cv.morphologyEX(img,cv.MORPG_GRADIENT,kernel)` is the difference between dilation and erosion. It looks like the outline of the object
+
+```python
+def closing(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(gray,127,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    
+    kernel = np.ones((3, 3), np.uint8)
+    gradient= cv.morphologyEX(thresh,cv.MORPH_GRADIENT,kernel))
+```
+
+### Customize Kernel
+
+```python
+# Rectangular Kernel
+kernel = cv.getStructuringElement(cv2.MORPH_RECT,(5,5))
+# Elliptical Kernel
+kernel = cv.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
+# Cross-shaped Kernel
+kernel = cv.getStructuringElement(cv2.MORPH_CROSS,(5,5))
+```
 
 
 
