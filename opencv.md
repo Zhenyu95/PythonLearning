@@ -691,6 +691,8 @@ im = cv2.drawContours(im,[box],0,(0,0,255),2)
 
 ## Morphological Transformations \(形态学\)
 
+Erode, Dilation, etc not only supports binary image, but also gray image and 3 channels image
+
 ### Erode
 
 ```python
