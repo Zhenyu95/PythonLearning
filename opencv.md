@@ -815,6 +815,26 @@ def waterShed(img):
     img[markers == -1] = [255, 0, 0]
 ```
 
+## grabCut
+
+grabCut rectangle
+
+```python
+def grabCutRec(img):
+    mask = np.zeros(img.shape[:2], np.uint8)
+
+    bgdModel = np.zeros((1, 65), np.float64)
+    fgdModel = np.zeros((1, 65), np.float64)
+
+    rect = (220, 1, 1000, 824)
+    cv.grabCut(img, mask, rect, bgdModel, fgdModel, 5, cv.GC_INIT_WITH_RECT)
+
+    mask = np.where((mask == 2) | (mask == 0), 0, 1).astype('uint8')
+    img = img * mask[:, :, np.newaxis]
+
+    plt.imshow(cv.cvtColor(img,cv.COLOR_BGR2RGB)), plt.colorbar(), plt.show()
+```
+
 
 
 
