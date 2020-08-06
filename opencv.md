@@ -140,6 +140,10 @@ def img_blur(img):
 ### Customize Kernel
 
 ```python
+# cv.filter2D(	src, ddepth, kernel[, dst[, anchor[, delta[, borderType]]]]	)
+# ddepth:desired depth of the destination image
+# when ddepth=-1, the output image will have the same depth as the source.
+# https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#filter_depths
 def customized_kernel(img):
     kernel = np.ones([3,3],np.float32)*(-1)
     kernel[1,1] = 9
