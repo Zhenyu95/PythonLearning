@@ -6,7 +6,8 @@
   * [Dict](python-basics/dict.md)
 * [OS](os-1.md)
 * [Numpy](numpy.md)
-* [OpenCV](opencv.md)
+* [OpenCV](opencv/README.md)
+  * [Feature Detection and Description](opencv/feature-detection-and-description.md)
 * [matplotlib](matplotlib.md)
 
 ## Scrapy <a id="scrapy-1"></a>

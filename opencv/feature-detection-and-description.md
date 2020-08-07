@@ -1,0 +1,53 @@
+# Feature Detection and Description
+
+## Harris Corner Detection
+
+### `cv.cornerHarris()`
+
+```python
+def harrisCorner(img):
+    gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+    
+    gray = np.float32(gray)
+    # cv2.cornerHarris(src, blockSize, ksize, k[, dst[, borderType]]) → dst
+    dst = cv.cornerHarris(gray, 2, 3, 0.04)
+    
+    #result is dilated for marking the corners, not important
+    dst = cv.dilate(dst,None)
+    
+    # Threshold for an optimal value, it may vary depending on the image.
+    img[dst>0.005*dst.max()]=[0, 0, 255]
+    
+    cv.imshow('dst',img)
+```
+
+### `cv.cornerSubPix()`
+
+```python
+def cornerSubPix(img):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+
+    # find Harris corners
+    gray = np.float32(gray)
+    dst = cv.cornerHarris(gray, 2, 3, 0.04)
+    dst = cv.dilate(dst, None)
+    ret, dst = cv.threshold(dst, 0.01 * dst.max(), 255, 0)
+    dst = np.uint8(dst)
+
+    # find centroids
+    ret, labels, stats, centroids = cv.connectedComponentsWithStats(dst)
+
+    # define the criteria to stop and refine the corners
+    criteria = (cv.TERM_CRITERIA_EPS + cv.TERM_CRITERIA_MAX_ITER, 100, 0.001)
+    # cv2.cornerSubPix(image, corners, winSize, zeroZone, criteria) → None
+    corners = cv.cornerSubPix(gray, np.float32(centroids), (5, 5), (-1, -1), criteria)
+
+    # Now draw them
+    res = np.hstack((centroids, corners))
+    res = np.int0(res)
+    img[res[:, 1], res[:, 0]] = [0, 0, 255]
+    img[res[:, 3], res[:, 2]] = [0, 255, 0]
+
+    cv.imshow('dst',img)
+```
+
