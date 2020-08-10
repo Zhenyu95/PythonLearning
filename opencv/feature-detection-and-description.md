@@ -51,3 +51,24 @@ def cornerSubPix(img):
     cv.imshow('dst',img)
 ```
 
+## Shi-Tomasi corner detector \(`cv.goodFeaturesToTrack()`\)
+
+```python
+def shiTomasi(img):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    # cv2.goodFeaturesToTrack(image, maxCorners, qualityLevel, minDistance[, corners[, mask[, blockSize[, useHarrisDetector[, k]]]]]) → corners
+    # maxCorners – Maximum number of corners to return
+    # qualityLevel – Parameter characterizing the minimal accepted quality of image corners.
+        # The parameter value is multiplied by the best corner quality measure, which is the minimal eigenvalue
+    # minDistance – Minimum possible Euclidean distance between the returned corners.
+    corners = cv.goodFeaturesToTrack(gray, 25, 0.01, 10)
+    # np.int0() is alias of np.int64
+    corners = np.int0(corners)
+
+    for i in corners:
+        x, y = i.ravel()
+        cv.circle(img, (x, y), 3, 255, -1)
+
+    plt.imshow(img), plt.show()
+```
+
