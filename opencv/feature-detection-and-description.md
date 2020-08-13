@@ -72,3 +72,26 @@ def shiTomasi(img):
     plt.imshow(img), plt.show()
 ```
 
+## SIFT
+
+the following code is based on opencv 4.3.0
+
+```python
+def imgSIFT(img):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    print('gray')
+    
+    # has to use cv.xfeatures2d_SIFT.create(), not cv.xfeatures2d_SIFT_create()
+    # not cv.SIFT.create() not cv.SIFT()
+    sift = cv.xfeatures2d_SIFT.create()
+    print('sift')
+    kp = sift.detect(gray, None)
+    print('kp,decs')
+    
+    # 2 ways to show the key points
+    # cv.drawKeypoints(gray, kp, img)
+    img = cv.drawKeypoints(gray, kp, outImage=img, flags=cv.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+    
+    cv.imshow('result.jpg', img)
+```
+
