@@ -95,3 +95,18 @@ def imgSIFT(img):
     cv.imshow('result.jpg', img)
 ```
 
+## SURF
+
+The following codes are ok in Anaconda Spyder 
+
+```python
+def imgSURF(img):
+    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+    surf = cv.xfeatures2d_SURF.create(hessianThreshold=500)
+
+    kp, des = surf.detectAndCompute(gray, None)
+
+    img = cv.drawKeypoints(img, kp, None, (255,0,0), 4)
+    cv.imshow('result',img)
+```
+
