@@ -97,7 +97,7 @@ def imgSIFT(img):
 
 ## SURF
 
-The following codes are ok in Anaconda Spyder 
+The following codes are ok in Anaconda Spyder with opencv version 3.4.2.17
 
 ```python
 def imgSURF(img):
