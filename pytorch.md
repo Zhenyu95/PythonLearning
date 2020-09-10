@@ -50,6 +50,40 @@ d = torch.add(a, 10)
 a = torch.randn(2, 3)
 b = torch.clamp(a, -0.1, 1)
 
+# torch.div ：将参数传递到torch.div后返回输入参数的求商结果作为输出，
+# 参与运算的参数可以全部是Tensor数据类型的变量，也可以是Tensor数据类型的变量和标量的组合。
+a = torch.randn(2, 3)
+b = torch.randn(2, 3)
+c = torch.div(a, b)
+d = torch.div(a, 10)
 
+# torch.mul ：将参数传递到 torch.mul后返回输入参数求积的结果作为输出，
+# 参与运算的参数可以全部是Tensor数据类型的变量，也可以是Tensor数据类型的变量和标量的组合。
+a = torch.randn(2, 3)
+b = torch.randn(2, 3)
+c = torch.mul(a, b)
+d = torch.mul(a, 10)
+
+#torch.pow ：将参数传递到torch.pow后返回输入参数的求幂结果作为输出，
+# 参与运算的参数可以全部是Tensor数据类型的变量，也可以是Tensor数据类型的变量和标量的组合。
+a = torch.randn(2, 3)
+b = torch.randn(2, 3)
+c = torch.pow(a, b)
+d = torch.pow(a, 10)
+
+# torch.mm ：将参数传递到 torch.mm后返回输入参数的求积结果作为输出. 
+# torch.mm运用矩阵之间的乘法规则进行计算,参数的维度要满足矩阵乘法的前提条件。
+a = torch.randn(2, 3)
+b = torch.randn(3, 2)
+c = torch.mm(a, b)
+
+# torch.mv ：将参数传递到torch.mv后返回输入参数的求积结果作为输出，
+# torch.mv运用矩阵与向量之间的乘法规则进行计算，被传入的参数中: 
+# 第1个参数代表矩阵，第2个参数代表向量，顺序不能颠倒。
+a = torch.randn(2, 3)
+b = torch.randn(3)
+c = torch.mv(a, b)
+
+# 
 ```
 
