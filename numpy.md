@@ -63,8 +63,7 @@ a = numpy.random.binomial(n, p)
 a = numpy.random.beta(alpha, beta)
 
 # normal ：生成一个指定维度且满足高斯正太分布的随机样本数。
-a = numpy.random.beta(, be
-
+a = numpy.random.beta(miu, delta)
 ```
 
 ## Compare 2 nparray and merge into 1
