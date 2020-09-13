@@ -1,12 +1,12 @@
 # Python Basics
 
-## `lamda`
+## `lambda`
 
 ```python
-lamda argument_list : expression
+lambda argument_list : expression
 ```
 
-`lamda` takes `argument_list` as input and returns `expression`
+`lambda` takes `argument_list` as input and returns `expression`
 
 eg.
 
