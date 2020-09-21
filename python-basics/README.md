@@ -69,5 +69,14 @@ assert x == "hello"
 assert x == "goodbye"
 ```
 
+## Set entries of a matrix to 0 and 1 based on a threshold
+
+判断列表中的每一个元素，如果大于阈值则1 否则为0
+
+```python
+list = np.random.randn(5,5)
+result = (list > threshold)
+```
+
 
 
