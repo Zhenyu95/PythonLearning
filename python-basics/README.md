@@ -78,5 +78,10 @@ list = np.random.randn(5,5)
 result = (list > threshold)
 ```
 
+```python
+list = np.random.randn(5,5)
+result = (list > threshold).astype(int)
+```
+
 
 
