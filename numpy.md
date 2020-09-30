@@ -66,6 +66,18 @@ a = numpy.random.beta(alpha, beta)
 a = numpy.random.beta(miu, delta)
 ```
 
+### 切片
+
+```python
+a = np.array([[1,2,3],[3,4,5],[4,5,6]])  
+print (a[...,1])   # 第2列元素
+print (a[:,1])   # 第2列元素
+print (a[1,:])   # 第2行元素
+print (a[1,...])   # 第2行元素
+print (a[:,1:])  # 第2列及剩下的所有元素
+print (a[...,1:])  # 第2列及剩下的所有元素
+```
+
 ## Compare 2 nparray and merge into 1
 
 ```python
