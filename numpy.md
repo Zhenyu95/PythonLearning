@@ -78,6 +78,18 @@ print (a[:,1:])  # 第2列及剩下的所有元素
 print (a[...,1:])  # 第2列及剩下的所有元素
 ```
 
+### `np.pad`
+
+```python
+# pad = 1 for the 2nd dimension, pad = 3 for the 4th dimension 
+# and pad = 0 for the rest
+a = np.pad(a, ((0,0), (1,1), (0,0), (3,3), (0,0)), 
+        mode='constant', constant_values = (0,0))
+
+# zero pad for all dimensions, pad=pad
+a = np.pad(a, ((pad,pad)), mode='constant', constant_values = (0,0))
+```
+
 ## Compare 2 nparray and merge into 1
 
 ```python
