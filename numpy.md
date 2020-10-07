@@ -90,6 +90,12 @@ a = np.pad(a, ((0,0), (1,1), (0,0), (3,3), (0,0)),
 a = np.pad(a, ((pad,pad)), mode='constant', constant_values = (0,0))
 ```
 
+### Project the max value of a matrix to mask
+
+```python
+mask = (oringinal_matrix == np.max(original_matrix))
+```
+
 ## Compare 2 nparray and merge into 1
 
 ```python
