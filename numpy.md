@@ -96,6 +96,13 @@ a = np.pad(a, ((pad,pad)), mode='constant', constant_values = (0,0))
 mask = (oringinal_matrix == np.max(original_matrix))
 ```
 
+### Numpy one line ReLU
+
+```python
+a = np.random.randn(4,4)
+a[a<0] = 0
+```
+
 ## Compare 2 nparray and merge into 1
 
 ```python
