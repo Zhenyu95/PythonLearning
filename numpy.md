@@ -90,6 +90,16 @@ a = np.pad(a, ((0,0), (1,1), (0,0), (3,3), (0,0)),
 a = np.pad(a, ((pad,pad)), mode='constant', constant_values = (0,0))
 ```
 
+## Tricks
+
+### 通过Numpy已指定概率随机
+
+```python
+np.random.seed(0)
+probs = np.array([0.1, 0.0, 0.7, 0.2])
+idx = np.random.choice(range(len((probs)), p = probs)
+```
+
 ### Project the max value of a matrix to mask
 
 ```python
@@ -103,7 +113,7 @@ a = np.random.randn(4,4)
 a[a<0] = 0
 ```
 
-## Compare 2 nparray and merge into 1
+### Compare 2 nparray and merge into 1
 
 ```python
 import numpy as np
