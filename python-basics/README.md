@@ -83,5 +83,11 @@ list = np.random.randn(5,5)
 result = (list > threshold).astype(int)
 ```
 
+## Pass by reference
+
+{% hint style="info" %}
+Python dictionaries and lists are "pass by reference", which means that if you pass a dictionary into a function and modify the dictionary within the function, this changes that same dictionary \(it's not a copy of the dictionary\).
+{% endhint %}
+
 
 
