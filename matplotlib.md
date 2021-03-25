@@ -42,3 +42,28 @@ def simThresh(img):
     plt.show()
 ```
 
+### Scatter plot example
+
+```python
+def plot_diff(y_true, y_pred, title=''):
+    # plot a scatter plot, y_true as x, y_pred as y
+    plt.scatter(y_true, y_pred)
+    # set the title
+    plt.title(title)
+    # set the x-axis label
+    plt.xlabel('True Values')
+    # set the y-axis label
+    plt.ylabel('Predictions')
+    # set the axis property
+    plt.axis('equal')
+    # set the axis property
+    plt.axis('square')
+    # set the x-axis limit
+    plt.xlim(plt.xlim())
+    # set the y-axis limit
+    plt.ylim(plt.ylim())
+    # plot a straight line as reference
+    plt.plot([-100, 100], [-100, 100])
+    plt.show()
+```
+
