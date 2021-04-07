@@ -10,6 +10,7 @@
   * [Feature Detection and Description](opencv/feature-detection-and-description.md)
 * [matplotlib](matplotlib.md)
 * [PyTorch](pytorch.md)
+* [Pandas](pandas.md)
 
 ## Scrapy <a id="scrapy-1"></a>
 
