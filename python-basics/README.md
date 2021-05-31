@@ -27,7 +27,7 @@ map(function, iterable)
 
 **`map()`**function returns a **map object**\(which is an iterator\) of the results after applying the given function to each item of a given iterable \(list, tuple etc.\)
 
-## `*args` & `*kwargs`
+## `*args` & `**kwargs`
 
 _`*args`_ in function definitions is to pass a number of variables to a function.
 
@@ -43,7 +43,7 @@ def myFun(arg1, *argv):
 myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks') 
 
 
-# *kargs for variable number of keyword arguments
+# **kargs for variable number of keyword arguments
 def myFun(**kwargs): 
 	for key, value in kwargs.items(): 
 		print ("%s == %s" %(key, value)) 
@@ -88,6 +88,41 @@ result = (list > threshold).astype(int)
 {% hint style="info" %}
 Python dictionaries and lists are "pass by reference", which means that if you pass a dictionary into a function and modify the dictionary within the function, this changes that same dictionary \(it's not a copy of the dictionary\).
 {% endhint %}
+
+## `vars()`
+
+Python classes have an attribute called `__dict__`. `__dict__` is a Python dictionary that contains the object's instance variables and values as key-value pairs. 
+
+`vars()` will call the object's `__dict__` attribute.
+
+```python
+# Define a small class MyClass
+class MyClass:
+    def __init__(self):
+        # One class variable 'a' is set to 1
+        self.var1 = 1
+
+# Create an object of type MyClass()
+my_obj = MyClass()
+
+my_obj.__dict__
+>>> {'var1': 1}
+vars(my_obj)
+>>> {'var1': 1}
+
+# Add a new instance variable and give it a value
+my_obj.var2 = 2
+# Calls vars() again to see the object's instance variables
+vars(my_obj)
+>>> {'var1': 1, 'var2': 2}
+
+# Call vars, passing in the object.  
+# Then access the __dict__ dictionary using square brackets
+vars(my_obj)['var3'] = 3
+# Call vars() to see the object's instance variables
+vars(my_obj)
+>>> {'var1': 1, 'var2': 2, 'var3': 3}
+```
 
 
 
